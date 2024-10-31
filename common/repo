@@ -26,6 +26,30 @@ Signed-By: $kr
 Enabled: yes
 SOURCES
 
+  cat << SOURCES > /etc/apt/sources.list.d/grommunio-devel.sources
+Types: deb
+URIs: https://download.grommunio.com/devel/Debian_$DEB
+Suites: Debian_$DEB
+Components: main
+Signed-By: $kr
+Enabled: no
+SOURCES
+
+  cat << SOURCES > /etc/apt/sources.list.d/grommunio-supported.sources
+Types: deb
+URIs: https://download.grommunio.com/community/Debian_$DEB
+Suites: Debian_$DEB
+Components: main
+Signed-By: $kr
+Enabled: no
+SOURCES
+
+  cat << SOURCES > /etc/apt/auth.conf.d/grommunio-supported.sources
+machine download.grommunio.com
+login YOURUSERNAME
+password YOURPASSWORD
+SOURCES
+
 echo
 echo -e " \x1b[36m▼\x1b[0m operation completed"
 echo
